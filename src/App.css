@@ -1,0 +1,48 @@
+* {
+    font-family: sans-serif;
+}
+
+html {
+    background-color: rgba(128, 128, 128, 0.014);
+    /* background-color: rgba(128, 128, 128, 0.048); */
+}
+
+
+/* swiper styling */
+
+.package-slider .swiper-slide {
+    /* box-shadow: 0 0 0 0.5px rgb(50 50 93 / 10%), 0 2px 5px 0 rgb(50 50 93 / 10%), 0 1px 1.5px 0 rgb(0 0 0 / 7%); */
+    padding: 10px 3px;
+}
+
+.testimonial-slider .swiper {
+    padding: 10px 3px;
+    display: flex;
+    align-items: center;
+}
+
+
+/* 
+.previousButton,
+.nextButton {
+    background-color: rgba(0, 0, 0, 0.411);
+    color: #fff;
+    padding: 5px;
+    border-radius: 10px;
+    z-index: 200;
+    cursor: pointer;
+}
+
+.previousButton:hover,
+.nextButton:hover {
+    background-color: rgba(0, 0, 0, 0.61);
+} */
+
+
+/* .nextButton {
+    right: 0px;
+}
+
+.previousButton {
+    left: 0px;
+} */
