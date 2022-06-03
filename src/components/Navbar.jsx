@@ -2,18 +2,32 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import { useForm } from "react-hook-form";
 const style = {
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
     bgcolor: "background.paper",
-    border: "none",
+    border: 0,
     boxShadow: 24,
-    p: 4,
+    p: 3,
 };
 const Navbar = () => {
+    //
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        mode: "all",
+        shouldUnregister: true,
+        shouldFocusError: true,
+    });
+    const onSubmit = (data) => {
+        console.log(data);
+    };
+
     // Modal
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -28,7 +42,7 @@ const Navbar = () => {
     };
     return (
         <>
-            <nav className="bg-white  h-24 border border-b-gray-50">
+            <nav className="bg-white h-24 md:h-full  border border-b-gray-50">
                 <div className="w-mobile md:w-container_width h-full  mx-auto flex justify-between items-center">
                     <div
                         className="block md:hidden cursor-pointer   "
@@ -36,7 +50,7 @@ const Navbar = () => {
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-11 w-11 text-red-700"
+                            className="h-11 w-11 text-red"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -52,7 +66,7 @@ const Navbar = () => {
                     <Link to="/">
                         <div className="hidden md:block">
                             <img
-                                src="https://res.cloudinary.com/kelvin45/image/upload/v1653471594/logos/cropped-IMG-20190302-WA0001-198x66_ikvbjw.jpg"
+                                src="https://res.cloudinary.com/kelvin45/image/upload/c_scale,h_132,w_234/v1654000958/logos/MSLogo_2-1_gipurj.png"
                                 alt=""
                             />
                         </div>
@@ -62,12 +76,12 @@ const Navbar = () => {
                         <Link to="/">
                             <li className="list-none text-purple   h">Home</li>
                         </Link>
-                        <Link to="/">
+                        <Link to="/about">
                             <li className="list-none text-purple">About</li>
                         </Link>
-                        <Link to="/">
+                        {/* <Link to="/">
                             <li className="list-none text-purple">Trips</li>
-                        </Link>
+                        </Link> */}
                         <div
                             className="flex items-center space-x-2 text-purple  relative "
                             onMouseEnter={() => setIsOpen(true)}
@@ -98,14 +112,13 @@ const Navbar = () => {
                             <div
                                 className={
                                     isOpen
-                                        ? "absolute  top-10  bg-white w-44 z-20 "
+                                        ? "absolute  top-10  bg-white w-44 z-20  "
                                         : "hidden"
                                 }
-                                style={{ borderTop: "2px solid purple " }}
                             >
-                                <Link to="/">
+                                <Link to="/southsudan">
                                     <p className="p-2.5 hover:bg-gray-50">
-                                        Kenya
+                                        South Sudan
                                     </p>
                                 </Link>
                                 <Link to="/">
@@ -115,7 +128,7 @@ const Navbar = () => {
                                 </Link>
                                 <Link to="/">
                                     <p className="p-2.5 hover:bg-gray-50">
-                                        Tanzania
+                                        Ethiopia
                                     </p>
                                 </Link>
                             </div>
@@ -140,14 +153,14 @@ const Navbar = () => {
             <section
                 className={
                     showSidebar
-                        ? "bg-gray-50  w-11/12 h-full  absolute top-0  translate-x-0 transition-all ease-in-out z-30 pt-5"
+                        ? "bg-white  w-11/12 h-full  absolute top-0  translate-x-0 transition-all ease-in-out z-30 pt-5 border border-r-gray-100"
                         : "-translate-x-96 transition-all  ease-in-out absolute top-0"
                 }
             >
                 <div className="flex justify-between items-center w-mobile mx-auto ">
                     <div className="md:hidden block">
                         <img
-                            src="https://res.cloudinary.com/kelvin45/image/upload/v1653471594/logos/cropped-IMG-20190302-WA0001-198x66_ikvbjw.jpg"
+                            src="https://res.cloudinary.com/kelvin45/image/upload/c_scale,h_132,w_234/v1654000958/logos/MSLogo_2-1_gipurj.png"
                             alt=""
                         />
                     </div>
@@ -167,7 +180,7 @@ const Navbar = () => {
                             Home
                         </li>
                     </Link>
-                    <Link to="/">
+                    <Link to="/about">
                         <li
                             className="list-none py-1.5 px-4 "
                             onClick={showSide}
@@ -175,14 +188,14 @@ const Navbar = () => {
                             About
                         </li>
                     </Link>
-                    <Link to="/">
+                    {/* <Link to="/">
                         <li
                             className="list-none py-1.5 px-4 "
                             onClick={showSide}
                         >
                             Trips
                         </li>
-                    </Link>
+                    </Link> */}
                     <Link to="/">
                         <li
                             className="list-none py-1.5 px-4 "
@@ -222,12 +235,140 @@ const Navbar = () => {
                 <div>
                     <Modal
                         open={open}
-                        onClose={handleClose}
+                        // onClose={handleClose}
                         aria-labelledby="modal-modal-title"
                         aria-describedby="modal-modal-description"
                     >
-                        <Box sx={style}>
-                            <p className="text-lg">BOOKING FORM</p>
+                        <Box sx={style} className="w-mobile md:w-1/2 ">
+                            <div className="flex justify-between py-3  text-purple">
+                                <p className="text-xl ">TOUR BOOKING FORM</p>
+                                <p
+                                    onClick={() => handleClose()}
+                                    className="bg-purple text-white w-8 h-8 flex items-center justify-center rounded-full p-2 cursor-pointer"
+                                >
+                                    X
+                                </p>
+                            </div>
+                            <form onSubmit={handleSubmit(onSubmit)}>
+                                <div className="space-y-5 ">
+                                    <div className="grid grid-cols-2 gap-2">
+                                        <div>
+                                            <label htmlFor="">Firstname</label>
+                                            <input
+                                                type="text"
+                                                className="border p-2 w-full"
+                                                placeholder="John "
+                                                {...register("firstname", {
+                                                    required: true,
+                                                })}
+                                            />
+                                            {errors.firstname && (
+                                                <p className="text-red">
+                                                    firstname is required{" "}
+                                                </p>
+                                            )}
+                                        </div>
+                                        <div>
+                                            <label htmlFor="">Lastname</label>
+                                            <input
+                                                type="text"
+                                                className="border p-2 w-full"
+                                                placeholder="Doe"
+                                                {...register("lastname", {
+                                                    required: true,
+                                                })}
+                                            />
+                                            {errors.lastname && (
+                                                <p className="text-red">
+                                                    lastname is required{" "}
+                                                </p>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-2 gap-3">
+                                        <div>
+                                            <label htmlFor="">Email</label>
+                                            <input
+                                                type="text"
+                                                placeholder="example123@gmail.com"
+                                                className="border w-full p-2"
+                                                {...register("email", {
+                                                    required: true,
+                                                })}
+                                            />
+                                            {errors.email && (
+                                                <p className="text-red">
+                                                    Email is required{" "}
+                                                </p>
+                                            )}
+                                        </div>
+                                        <div>
+                                            <label htmlFor="">Phone</label>
+                                            <input
+                                                type="text"
+                                                placeholder="+2119569..."
+                                                className="border w-full p-2"
+                                                {...register("phone", {
+                                                    required: true,
+                                                })}
+                                            />
+                                            {errors.phone && (
+                                                <p className="text-red">
+                                                    Phone is required{" "}
+                                                </p>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p>When are you planning to visit</p>
+                                        <input
+                                            type="date"
+                                            className="border w-full p-2"
+                                            {...register("date", {
+                                                required: true,
+                                            })}
+                                        />
+                                        {errors.date && (
+                                            <p className="text-red">
+                                                Date is required{" "}
+                                            </p>
+                                        )}
+                                    </div>
+                                    <div>
+                                        <p>How many people are you ?</p>
+                                        <input
+                                            type="number"
+                                            className="border w-full p-2"
+                                            {...register("number", {
+                                                required: true,
+                                            })}
+                                        />
+                                        {errors.number && (
+                                            <p className="text-red">
+                                                Number of people is required{" "}
+                                            </p>
+                                        )}
+                                    </div>
+                                    <div>
+                                        <p>How should we contact you ?</p>
+                                        <div className="flex items-center space-x-2">
+                                            <input type="checkbox" />
+                                            <p>phone</p>
+                                        </div>
+                                        <div className="flex items-center space-x-2">
+                                            <input type="checkbox" />
+                                            <p>Email</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <input
+                                            type="submit"
+                                            className="border p-2 w-full bg-purple text-white"
+                                        />
+                                    </div>
+                                </div>
+                            </form>
                         </Box>
                     </Modal>
                 </div>

@@ -1,10 +1,11 @@
 * {
     font-family: sans-serif;
+    /* position: relative; */
 }
 
 html {
-    background-color: rgba(128, 128, 128, 0.014);
-    /* background-color: rgba(128, 128, 128, 0.048); */
+    /* background-color: rgba(128, 128, 128, 0.014); */
+    background-color: rgba(128, 128, 128, 0.048);
 }
 
 

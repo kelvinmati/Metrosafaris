@@ -14,8 +14,10 @@ module.exports = {
             },
             colors: {
 
-                purple: "#6A5495",
-                hover_color: "#533E85"
+                purple: "#006b00",
+                hover_color: "#009900",
+                global_blue: "#a6deea",
+                red: "red",
             }
 
 
