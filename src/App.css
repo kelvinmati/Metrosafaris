@@ -1,27 +1,25 @@
 * {
-    font-family: sans-serif;
-    /* position: relative; */
+  font-family: sans-serif;
+  /* position: relative; */
 }
 
 html {
-    /* background-color: rgba(128, 128, 128, 0.014); */
-    background-color: rgba(128, 128, 128, 0.048);
+  /* background-color: rgba(128, 128, 128, 0.014); */
+  background-color: rgba(128, 128, 128, 0.048);
 }
-
 
 /* swiper styling */
 
 .package-slider .swiper-slide {
-    /* box-shadow: 0 0 0 0.5px rgb(50 50 93 / 10%), 0 2px 5px 0 rgb(50 50 93 / 10%), 0 1px 1.5px 0 rgb(0 0 0 / 7%); */
-    padding: 10px 3px;
+  /* box-shadow: 0 0 0 0.5px rgb(50 50 93 / 10%), 0 2px 5px 0 rgb(50 50 93 / 10%), 0 1px 1.5px 0 rgb(0 0 0 / 7%); */
+  padding: 10px 3px;
 }
 
 .testimonial-slider .swiper {
-    padding: 10px 3px;
-    display: flex;
-    align-items: center;
+  padding: 10px 3px;
+  display: flex;
+  align-items: center;
 }
-
 
 /* 
 .previousButton,
@@ -39,7 +37,6 @@ html {
     background-color: rgba(0, 0, 0, 0.61);
 } */
 
-
 /* .nextButton {
     right: 0px;
 }
@@ -47,3 +44,25 @@ html {
 .previousButton {
     left: 0px;
 } */
+
+/* Works on Firefox */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: gray rgba(128, 128, 128, 0.452);
+}
+
+/* Works on Chrome, Edge, and Safari */
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(128, 128, 128, 0.349);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(128, 128, 128, 0.452);
+  border-radius: 20px;
+}

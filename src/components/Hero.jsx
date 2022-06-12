@@ -11,7 +11,7 @@ const Hero = () => {
       }}
     >
       <div className=" h-full space-y-12 flex  flex-col items-start justify-center  w-mobile  md:w-3/4 mx-auto">
-        <p className="text-5xl uppercase ">
+        <p className="text-5xl">
           Experience East African Adventure With Metro Safaris
         </p>
         <p>
